@@ -8,19 +8,26 @@ class App extends React.Component {
     super(props);
     this.state = {tasks: []};
     this.onButtonClicked = this.onButtonClicked.bind(this);
+    this.onDeleteButton = this.onDeleteButton.bind(this);
   }
 
-  onButtonClicked(task){
+  onButtonClicked(taskArr){
     this.setState({
-      tasks : task
+      tasks : taskArr
     })
   }
 
+  onDeleteButton(taskArr){
+    this.setState({
+      tasks: taskArr
+    })
+  }
 
   render(){
     return (
       <Overview 
-      onClick = {this.onButtonClicked} 
+      onClick = {this.onButtonClicked}
+      onDelete = {this.onDeleteButton} 
       tasks={this.state.tasks}/>
     );
   }
